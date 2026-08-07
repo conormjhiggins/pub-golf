@@ -45,7 +45,7 @@
     width:210mm;
     height:148mm;
     box-sizing:border-box;
-    padding:4mm 7.5mm;
+    padding:3.6mm 7.5mm;
     overflow:hidden;
   }
 
@@ -54,7 +54,8 @@
     .sheet{ box-shadow:none; margin:0; }
   }
 
-  .score-table{ width:195mm; border-collapse:collapse; table-layout:fixed; }
+  .score-table{ width:195mm; border-collapse:collapse; table-layout:fixed; border:0.4mm solid var(--text); }
+  .score-table .divider-left{ border-left:0.3mm solid var(--muted); }
   .score-table thead tr{ height:5mm; }
   .score-table tbody tr{ height:10mm; }
   .score-table tfoot tr{ height:10mm; }
@@ -91,6 +92,13 @@
     font-family:'IBM Plex Mono',monospace;
     text-align:center;
     color:var(--muted);
+  }
+  .score-table tbody td.pub,
+  .score-table tbody td.drink{
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+    letter-spacing:0.01em;
   }
   .score-table tbody td.score-box{
     border-left:0.4mm solid var(--text);
@@ -153,7 +161,8 @@
     <table class="score-table">
       <colgroup>
         <col style="width:9.5mm;">
-        <col style="width:68mm;">
+        <col style="width:32mm;">
+        <col style="width:36mm;">
         <col style="width:20mm;">
         <col style="width:16.25mm;">
         <col style="width:16.25mm;">
@@ -165,8 +174,9 @@
       <thead>
         <tr>
           <th rowspan="2" class="center">#</th>
-          <th rowspan="2">Pub &amp; Drink</th>
-          <th rowspan="2" class="center">Par</th>
+          <th rowspan="2" class="divider-left">Pub</th>
+          <th rowspan="2" class="divider-left">Drink</th>
+          <th rowspan="2" class="center divider-left">Par</th>
           <th colspan="2" class="center">P1</th>
           <th colspan="2" class="center">P2</th>
           <th colspan="2" class="center">P3</th>
@@ -178,23 +188,23 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td class="hole-num">1</td><td>Ma Kellys — Pint of lager</td><td class="par">5</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">2</td><td>Cowboy &amp; Co. — Whisky &amp; mixer</td><td class="par">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">3</td><td>Walkabout — Cocktail of choice</td><td class="par">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">4</td><td>Nellie Deans — Baby Guinness shot</td><td class="par">1</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">5</td><td>Bees Knees — Cocktail off the menu</td><td class="par">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">6</td><td>The Retro Lounge — 2-4-1 cocktail</td><td class="par">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">7</td><td>Rose &amp; Crown — Pint of lager</td><td class="par">4</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">8</td><td>Scruffy Murphys — Full pour Guinness</td><td class="par">5</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">9</td><td>The Layton Rakes — Double spirit + mixer</td><td class="par">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">10</td><td>Shenanigans — Irish whiskey shot</td><td class="par">1</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">11</td><td>Coyote Ugly — Tequila shot</td><td class="par">1</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
-        <tr><td class="hole-num">12</td><td>Knobby's Karaoke — Final song</td><td class="par">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">1</td><td class="divider-left pub">Ma Kellys</td><td class="divider-left drink">Pint of lager</td><td class="par divider-left">5</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">2</td><td class="divider-left pub">Cowboy &amp; Co.</td><td class="divider-left drink">Whisky &amp; mixer</td><td class="par divider-left">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">3</td><td class="divider-left pub">Walkabout</td><td class="divider-left drink">Cocktail of choice</td><td class="par divider-left">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">4</td><td class="divider-left pub">Nellie Deans</td><td class="divider-left drink">Baby Guinness shot</td><td class="par divider-left">1</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">5</td><td class="divider-left pub">Bees Knees</td><td class="divider-left drink">Cocktail off the menu</td><td class="par divider-left">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">6</td><td class="divider-left pub">The Retro Lounge</td><td class="divider-left drink">2-4-1 cocktail</td><td class="par divider-left">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">7</td><td class="divider-left pub">Rose &amp; Crown</td><td class="divider-left drink">Pint of lager</td><td class="par divider-left">4</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">8</td><td class="divider-left pub">Scruffy Murphys</td><td class="divider-left drink">Full pour Guinness</td><td class="par divider-left">5</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">9</td><td class="divider-left pub">The Layton Rakes</td><td class="divider-left drink">Double spirit + mixer</td><td class="par divider-left">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">10</td><td class="divider-left pub">Shenanigans</td><td class="divider-left drink">Irish whiskey shot</td><td class="par divider-left">1</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">11</td><td class="divider-left pub">Coyote Ugly</td><td class="divider-left drink">Tequila shot</td><td class="par divider-left">1</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
+        <tr><td class="hole-num">12</td><td class="divider-left pub">Knobby's Karaoke</td><td class="divider-left drink">Final song</td><td class="par divider-left">3</td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td><td class="score-box"></td><td class="pen-box"></td></tr>
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="2" class="total-label">TOTAL</td>
-          <td class="par" style="color:var(--green-deep);">35</td>
+          <td colspan="3" class="total-label">TOTAL</td>
+          <td class="par divider-left" style="color:var(--green-deep);">35</td>
           <td class="score-box"></td><td class="pen-box"></td>
           <td class="score-box"></td><td class="pen-box"></td>
           <td class="score-box"></td><td class="pen-box"></td>
