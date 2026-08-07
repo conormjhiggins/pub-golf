@@ -53,6 +53,51 @@
     body{ background:var(--white); }
     .sheet{ box-shadow:none; margin:0; }
   }
+
+  .score-table{ width:195mm; border-collapse:collapse; table-layout:fixed; }
+  .score-table thead tr{ height:8mm; }
+  .score-table tbody tr{ height:10.17mm; }
+  .score-table tfoot tr{ height:10mm; }
+  .score-table thead th{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:6.5pt;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--white);
+    background:var(--green-deep);
+    text-align:left;
+    padding:0 1.5mm;
+  }
+  .score-table thead th.center{ text-align:center; }
+  .score-table tbody td{
+    font-size:7pt;
+    color:var(--text);
+    border-bottom:0.2mm solid var(--line);
+    padding:0 1.5mm;
+    vertical-align:middle;
+  }
+  .score-table tbody td.hole-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    text-align:center;
+    color:var(--green);
+  }
+  .score-table tbody td.par{
+    font-family:'IBM Plex Mono',monospace;
+    text-align:center;
+    color:var(--muted);
+  }
+  .score-table tbody td.score-box{
+    border-left:0.2mm solid var(--line);
+  }
+  .score-table tfoot td{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:7.5pt;
+    color:var(--green-deep);
+    border-top:0.4mm solid var(--text);
+    padding:0 1.5mm;
+  }
 </style>
 </head>
 <body>
@@ -86,7 +131,51 @@
 </div>
 
 <div class="sheet" id="sheet-inside">
-  <div class="inside-content"></div>
+  <div class="inside-content">
+    <table class="score-table">
+      <colgroup>
+        <col style="width:9.5mm;">
+        <col style="width:68mm;">
+        <col style="width:20mm;">
+        <col style="width:32.5mm;">
+        <col style="width:32.5mm;">
+        <col style="width:32.5mm;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="center">#</th>
+          <th>Pub &amp; Drink</th>
+          <th class="center">Par</th>
+          <th class="center">P1</th>
+          <th class="center">P2</th>
+          <th class="center">P3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="hole-num">1</td><td>Ma Kellys — Pint of lager</td><td class="par">5</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">2</td><td>Cowboy &amp; Co. — Whisky &amp; mixer</td><td class="par">3</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">3</td><td>Walkabout — Cocktail of choice</td><td class="par">3</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">4</td><td>Nellie Deans — Baby Guinness shot</td><td class="par">1</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">5</td><td>Bees Knees — Cocktail off the menu</td><td class="par">3</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">6</td><td>The Retro Lounge — 2-4-1 cocktail</td><td class="par">3</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">7</td><td>Rose &amp; Crown — Pint of lager</td><td class="par">4</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">8</td><td>Scruffy Murphys — Full pour Guinness</td><td class="par">5</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">9</td><td>The Layton Rakes — Double spirit + mixer</td><td class="par">3</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">10</td><td>Shenanigans — Irish whiskey shot</td><td class="par">1</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">11</td><td>Coyote Ugly — Tequila shot</td><td class="par">1</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+        <tr><td class="hole-num">12</td><td>Knobby's Karaoke — Final song</td><td class="par">3</td><td class="score-box"></td><td class="score-box"></td><td class="score-box"></td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">TOTAL PAR</td>
+          <td class="par" style="color:var(--green-deep);">35</td>
+          <td class="score-box"></td>
+          <td class="score-box"></td>
+          <td class="score-box"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 </div>
 
 </body>
