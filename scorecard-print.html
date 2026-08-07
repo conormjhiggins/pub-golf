@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Roby Mill Pub Golf — Printable Scorecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F2F6FB;
+    --cream-deep:#E1EBF7;
+    --white:#FFFFFF;
+    --green:#1D4E89;
+    --green-deep:#0B2545;
+    --gold:#E8622C;
+    --text:#14213D;
+    --muted:#5B6B85;
+    --line:#C9D6E8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#CCCCCC;font-family:'Inter',sans-serif;color:var(--text);}
+  @page{ size:210mm 148mm; margin:0; }
+
+  .sheet{
+    width:210mm;
+    height:148mm;
+    display:flex;
+    background:var(--white);
+    page-break-after:always;
+    break-after:page;
+    margin:0 auto 4mm;
+    box-shadow:0 0 0 0.3mm var(--line);
+    overflow:hidden;
+  }
+  .sheet:last-child{ page-break-after:auto; break-after:auto; margin-bottom:0; }
+
+  .panel{
+    width:105mm;
+    height:148mm;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+
+  .inside-content{
+    width:210mm;
+    height:148mm;
+    box-sizing:border-box;
+    padding:4mm 7.5mm;
+    overflow:hidden;
+  }
+
+  @media print{
+    body{ background:var(--white); }
+    .sheet{ box-shadow:none; margin:0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet" id="sheet-outside">
+  <div class="panel back-cover"></div>
+  <div class="panel front-cover"></div>
+</div>
+
+<div class="sheet" id="sheet-inside">
+  <div class="inside-content"></div>
+</div>
+
+</body>
+</html>
