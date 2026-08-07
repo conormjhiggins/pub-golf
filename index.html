@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackpool Pub Golf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F0E1;
+    --cream-deep:#EAE2C8;
+    --white:#FFFFFF;
+    --green:#0B4228;
+    --green-deep:#062B1A;
+    --gold:#C9A227;
+    --text:#1C2B22;
+    --muted:#6E7A66;
+    --line:#D9D0B4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--green);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:64px 24px 44px;
+    text-align:center;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--green);
+    margin-bottom:20px;
+  }
+  h1.marquee{
+    font-family:'Playfair Display',serif;
+    font-weight:800;
+    font-size:clamp(38px,8vw,72px);
+    line-height:1.02;
+    margin:0;
+    color:var(--green-deep);
+  }
+  .rule{
+    width:64px;
+    height:3px;
+    background:var(--gold);
+    margin:22px auto;
+    border:none;
+  }
+  .tagline{
+    font-size:16px;
+    color:var(--muted);
+    margin-top:4px;
+    font-weight:500;
+  }
+  .tagline b{color:var(--green-deep);}
+
+  /* ---------- STICKY STAT BAR ---------- */
+  .statbar{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    background:var(--green-deep);
+    border-bottom:2px solid var(--gold);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+  }
+  .statbar div{
+    padding:12px 20px;
+    border-right:1px solid rgba(255,255,255,0.12);
+    color:var(--cream);
+    white-space:nowrap;
+  }
+  .statbar div:last-child{border-right:none;}
+  .statbar strong{color:var(--gold);}
+
+  /* ---------- SCORECARD ---------- */
+  .card-section{
+    max-width:840px;
+    margin:0 auto;
+    padding:56px 20px 24px;
+  }
+  .section-title{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:26px;
+    color:var(--green-deep);
+    margin:0 0 4px;
+  }
+  .section-sub{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:28px;
+  }
+
+  .hole{
+    display:grid;
+    grid-template-columns:56px 1fr auto;
+    align-items:center;
+    gap:16px;
+    padding:16px 18px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:8px;
+    margin-bottom:10px;
+    transition:border-color 0.15s ease, transform 0.15s ease;
+  }
+  .hole:hover{border-color:var(--gold); transform:translateY(-1px);}
+  .hole.final{border-color:var(--gold); background:var(--cream-deep); border-width:2px;}
+  .hole-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:20px;
+    color:var(--cream);
+    background:var(--green);
+    width:40px;height:40px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hole.final .hole-num{background:var(--gold); color:var(--green-deep);}
+  .hole-name{
+    font-weight:700;
+    font-size:16px;
+    color:var(--text);
+  }
+  .hole-name a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    text-decoration:none;
+    margin-left:8px;
+    border-bottom:1px dotted var(--muted);
+  }
+  .hole-drink{
+    font-size:13.5px;
+    color:var(--muted);
+    margin-top:3px;
+  }
+  .hole-par{
+    font-family:'IBM Plex Mono',monospace;
+    text-align:right;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .hole-par strong{
+    display:block;
+    font-size:22px;
+    color:var(--green);
+  }
+  .hole.final .hole-par strong{color:var(--gold);}
+
+  /* ---------- RULES / PENALTIES ---------- */
+  .rules{
+    max-width:840px;
+    margin:40px auto 0;
+    padding:0 20px 20px;
+  }
+  .plaque{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:24px;
+  }
+  table.penalties{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+    margin-top:6px;
+  }
+  table.penalties td{
+    padding:10px 6px;
+    border-bottom:1px solid var(--line);
+  }
+  table.penalties tr:last-child td{border-bottom:none;}
+  table.penalties td:first-child{color:var(--text); font-weight:600;}
+  table.penalties td:last-child{
+    text-align:right;
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--green);
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  /* ---------- MAP ---------- */
+  .map-section{
+    max-width:840px;
+    margin:44px auto 0;
+    padding:0 20px;
+  }
+  .map-frame{
+    width:100%;
+    height:440px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    background:var(--white);
+  }
+  .map-frame iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+  }
+  .map-btn{
+    display:inline-block;
+    margin-top:14px;
+    padding:10px 18px;
+    background:var(--green);
+    color:var(--cream);
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    border-radius:6px;
+    border:1px solid var(--green-deep);
+  }
+  .map-btn:hover{background:var(--green-deep);}
+
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    padding:40px 20px 60px;
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  @media (max-width:520px){
+    .hole{grid-template-columns:44px 1fr auto; padding:14px;}
+    .hole-num{width:34px;height:34px;font-size:16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Saturday &middot; 2pm start &middot; Blackpool North Station</div>
+  <h1 class="marquee">Blackpool Pub Golf</h1>
+  <hr class="rule">
+  <p class="tagline">12 holes. One round. <b>Par 35.</b></p>
+</div>
+
+<div class="statbar">
+  <div>Holes <strong>12</strong></div>
+  <div>Total Par <strong>35</strong></div>
+  <div>Start <strong>Ma Kellys, Talbot Rd</strong></div>
+  <div>Finish <strong>Knobby's Karaoke</strong></div>
+</div>
+
+<div class="map-section">
+  <div class="section-title">The Route</div>
+  <div class="section-sub">All 12 holes, in order, walking from Blackpool North.</div>
+  <div class="map-frame">
+    <iframe
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?saddr=53.8220007,-3.0493417&daddr=53.8203086,-3.0513078+to:53.8197303,-3.0545446+to:53.8200073,-3.0536698+to:53.8202837,-3.055121+to:53.8202655,-3.0551395+to:53.818735,-3.0539769+to:53.8180556,-3.0538889+to:53.8177089,-3.0536727+to:53.8181683,-3.0551112+to:53.8153624,-3.0555638+to:53.8182045,-3.0557455+to:53.8180949,-3.0554977&output=embed">
+    </iframe>
+  </div>
+  <a class="map-btn" href="https://www.google.com/maps?saddr=53.8220007,-3.0493417&daddr=53.8203086,-3.0513078+to:53.8197303,-3.0545446+to:53.8200073,-3.0536698+to:53.8202837,-3.055121+to:53.8202655,-3.0551395+to:53.818735,-3.0539769+to:53.8180556,-3.0538889+to:53.8177089,-3.0536727+to:53.8181683,-3.0551112+to:53.8153624,-3.0555638+to:53.8182045,-3.0557455+to:53.8180949,-3.0554977" target="_blank" rel="noopener">Open full route in Google Maps</a>
+</div>
+
+<div class="card-section">
+  <div class="section-title">The Course</div>
+  <div class="section-sub">Tap a pub name to open it in Google Maps.</div>
+
+  <div class="hole">
+    <div class="hole-num">1</div>
+    <div>
+      <div class="hole-name">Ma Kellys (Talbot Rd) <a href="https://maps.google.com/?cid=16936307682419193070" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Pint of lager</div>
+    </div>
+    <div class="hole-par">PAR<strong>5</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">2</div>
+    <div>
+      <div class="hole-name">Walkabout <a href="https://maps.google.com/?cid=6264548240746772464" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Cocktail of choice</div>
+    </div>
+    <div class="hole-par">PAR<strong>3</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">3</div>
+    <div>
+      <div class="hole-name">Cowboy &amp; Co. <a href="https://maps.google.com/?cid=10900296270833876336" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Whisky &amp; mixer</div>
+    </div>
+    <div class="hole-par">PAR<strong>3</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">4</div>
+    <div>
+      <div class="hole-name">Bees Knees <a href="https://maps.google.com/?cid=5561593540148828843" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Cocktail off the menu</div>
+    </div>
+    <div class="hole-par">PAR<strong>3</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">5</div>
+    <div>
+      <div class="hole-name">Nellie Deans <a href="https://maps.google.com/?cid=8356946702973470575" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Baby Guinness shot</div>
+    </div>
+    <div class="hole-par">PAR<strong>1</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">6</div>
+    <div>
+      <div class="hole-name">The Retro Lounge <a href="https://maps.google.com/?cid=17796317771131267222" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">2-4-1 cocktail</div>
+    </div>
+    <div class="hole-par">PAR<strong>3</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">7</div>
+    <div>
+      <div class="hole-name">Rose &amp; Crown <a href="https://maps.google.com/?cid=14584339084816987920" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Pint of lager</div>
+    </div>
+    <div class="hole-par">PAR<strong>4</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">8</div>
+    <div>
+      <div class="hole-name">Scruffy Murphys <a href="https://maps.google.com/?cid=3200169774803154674" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Full pour Guinness</div>
+    </div>
+    <div class="hole-par">PAR<strong>5</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">9</div>
+    <div>
+      <div class="hole-name">The Layton Rakes <a href="https://maps.google.com/?cid=11205326740878386532" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Double spirit + mixer of choice</div>
+    </div>
+    <div class="hole-par">PAR<strong>3</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">10</div>
+    <div>
+      <div class="hole-name">The Albert &amp; The Lion <a href="https://maps.google.com/?cid=4446206701600384967" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Jagerbomb</div>
+    </div>
+    <div class="hole-par">PAR<strong>1</strong></div>
+  </div>
+
+  <div class="hole">
+    <div class="hole-num">11</div>
+    <div>
+      <div class="hole-name">Shenanigans <a href="https://maps.google.com/?cid=15741713562485109228" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Irish whiskey shot</div>
+    </div>
+    <div class="hole-par">PAR<strong>1</strong></div>
+  </div>
+
+  <div class="hole final">
+    <div class="hole-num">12</div>
+    <div>
+      <div class="hole-name">Knobby's Karaoke Bar <a href="https://maps.google.com/?cid=5411722336226772521" target="_blank" rel="noopener">map</a></div>
+      <div class="hole-drink">Final drink &mdash; everyone sings one song</div>
+    </div>
+    <div class="hole-par">PAR<strong>3</strong></div>
+  </div>
+</div>
+
+<div class="rules">
+  <div class="section-title">Penalty Strokes</div>
+  <div class="section-sub">Added to your score for the hole it happens on.</div>
+  <div class="plaque">
+    <table class="penalties">
+      <tr><td>Spilled drink</td><td>+2</td></tr>
+      <tr><td>Piss between pubs</td><td>+1</td></tr>
+      <tr><td>Broken glass</td><td>+3</td></tr>
+      <tr><td>Throwing up</td><td>+3</td></tr>
+      <tr><td>Dry hole</td><td></td></tr>
+    </table>
+  </div>
+</div>
+
+<footer>
+  Blackpool Pub Golf &middot; Sat 2pm &middot; Blackpool North
+</footer>
+
+</body>
+</html>
