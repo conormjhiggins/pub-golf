@@ -41,6 +41,20 @@
 
   .cover-page{
     display:flex;
+    flex-direction:row;
+    padding:0;
+  }
+  .cover-blank{
+    width:50%;
+    height:100%;
+    background:var(--white);
+  }
+  .cover-content{
+    width:50%;
+    height:100%;
+    box-sizing:border-box;
+    padding:10mm;
+    display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
@@ -167,11 +181,14 @@
 <body>
 
 <div class="page cover-page">
-  <div class="cover-eyebrow">Saturday 15th August &middot; 2pm start &middot; Blackpool North Station</div>
-  <h1 class="cover-title">Roby Mill<br>Pub Golf</h1>
-  <div class="cover-subtitle">Overall Scorecard</div>
-  <hr class="cover-rule">
-  <div class="cover-tagline">12 Holes &middot; <strong style="color:var(--green-deep);">Par 39</strong> &middot; 6 Teams</div>
+  <div class="cover-blank"></div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Saturday 15th August &middot; 2pm start &middot; Blackpool North Station</div>
+    <h1 class="cover-title">Roby Mill<br>Pub Golf</h1>
+    <div class="cover-subtitle">Overall Scorecard</div>
+    <hr class="cover-rule">
+    <div class="cover-tagline">12 Holes &middot; <strong style="color:var(--green-deep);">Par 39</strong> &middot; 6 Teams</div>
+  </div>
 </div>
 
 <div class="page">
