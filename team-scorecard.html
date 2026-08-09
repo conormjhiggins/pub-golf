@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Roby Mill Pub Golf — Team Scorecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F2F6FB;
+    --cream-deep:#E1EBF7;
+    --white:#FFFFFF;
+    --green:#1D4E89;
+    --green-deep:#0B2545;
+    --gold:#E8622C;
+    --text:#14213D;
+    --muted:#5B6B85;
+    --line:#C9D6E8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#CCCCCC;font-family:'Inter',sans-serif;color:var(--text);}
+  @page{ size:297mm 210mm; margin:0; }
+
+  .page{
+    width:297mm;
+    height:210mm;
+    box-sizing:border-box;
+    background:var(--white);
+    padding:10mm;
+    margin:0 auto;
+    overflow:hidden;
+  }
+
+  @media print{
+    body{ background:var(--white); }
+    .page{ margin:0; }
+  }
+
+  .title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:4mm;
+  }
+  .title{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:16pt;
+    color:var(--green-deep);
+    margin:0;
+  }
+  .subtitle{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:8pt;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--muted);
+  }
+
+  .team-table{ width:277mm; border-collapse:collapse; table-layout:fixed; border:0.4mm solid var(--text); }
+  .team-table colgroup col.team-col{ width:35mm; }
+  .team-table colgroup col.hole-col{ width:18.33mm; }
+  .team-table colgroup col.total-col{ width:22mm; }
+
+  .team-table thead tr{ height:13.5mm; }
+  .team-table thead th{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--white);
+    background:var(--green-deep);
+    border-left:0.2mm solid rgba(255,255,255,0.25);
+    text-align:center;
+    padding:0 1mm;
+    vertical-align:middle;
+  }
+  .team-table thead th:first-child{ border-left:none; }
+  .team-table thead th .hole-number{ display:block; font-size:9pt; font-weight:700; }
+  .team-table thead th .hole-pub{ display:block; font-size:5pt; font-weight:500; text-transform:uppercase; letter-spacing:0.02em; opacity:0.85; margin-top:0.5mm; }
+
+  .par-row td{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:8pt;
+    font-weight:700;
+    color:var(--green-deep);
+    background:var(--cream-deep);
+    text-align:center;
+    border-bottom:0.4mm solid var(--text);
+    border-left:0.2mm solid var(--line);
+    height:9mm;
+  }
+  .par-row td:first-child{ text-align:left; padding-left:2mm; border-left:none; }
+
+  .team-table tbody.teams tr{ height:25mm; }
+  .team-table tbody.teams td{
+    border-bottom:0.2mm solid var(--line);
+    border-left:0.2mm solid var(--line);
+    vertical-align:top;
+    padding:1.5mm;
+  }
+  .team-table tbody.teams tr:last-child td{ border-bottom:none; }
+  .team-table tbody.teams td.team-name{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:8pt;
+    color:var(--muted);
+    border-left:none;
+  }
+  .team-table tbody.teams td.team-name span{
+    display:block;
+    margin-top:2mm;
+    border-bottom:0.3mm solid var(--text);
+    height:5mm;
+  }
+  .team-table tbody.teams td.total-box{
+    background:var(--cream);
+    border-left:0.3mm solid var(--text);
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="title-row">
+    <h1 class="title">Roby Mill Pub Golf — Team Scorecard</h1>
+    <div class="subtitle">Saturday 15th August &middot; 12 Holes &middot; Par 39</div>
+  </div>
+
+  <table class="team-table">
+    <colgroup>
+      <col class="team-col">
+      <col class="hole-col"><col class="hole-col"><col class="hole-col"><col class="hole-col">
+      <col class="hole-col"><col class="hole-col"><col class="hole-col"><col class="hole-col">
+      <col class="hole-col"><col class="hole-col"><col class="hole-col"><col class="hole-col">
+      <col class="total-col">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>TEAM</th>
+        <th><span class="hole-number">1</span><span class="hole-pub">Ma Kellys</span></th>
+        <th><span class="hole-number">2</span><span class="hole-pub">Cowboy &amp; Co.</span></th>
+        <th><span class="hole-number">3</span><span class="hole-pub">Walkabout</span></th>
+        <th><span class="hole-number">4</span><span class="hole-pub">Nellie Deans</span></th>
+        <th><span class="hole-number">5</span><span class="hole-pub">Bees Knees</span></th>
+        <th><span class="hole-number">6</span><span class="hole-pub">Retro Lounge</span></th>
+        <th><span class="hole-number">7</span><span class="hole-pub">Rose &amp; Crown</span></th>
+        <th><span class="hole-number">8</span><span class="hole-pub">Scruffy M.</span></th>
+        <th><span class="hole-number">9</span><span class="hole-pub">Layton Rakes</span></th>
+        <th><span class="hole-number">10</span><span class="hole-pub">Shenanigans</span></th>
+        <th><span class="hole-number">11</span><span class="hole-pub">Coyote Ugly</span></th>
+        <th><span class="hole-number">12</span><span class="hole-pub">Knobby's</span></th>
+        <th>TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="par-row">
+        <td>PAR</td>
+        <td>5</td><td>3</td><td>4</td><td>1</td><td>3</td><td>3</td><td>4</td><td>5</td><td>6</td><td>1</td><td>1</td><td>3</td>
+        <td>39</td>
+      </tr>
+    </tbody>
+    <tbody class="teams">
+      <tr><td class="team-name">1.<span></span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="total-box"></td></tr>
+      <tr><td class="team-name">2.<span></span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="total-box"></td></tr>
+      <tr><td class="team-name">3.<span></span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="total-box"></td></tr>
+      <tr><td class="team-name">4.<span></span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="total-box"></td></tr>
+      <tr><td class="team-name">5.<span></span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="total-box"></td></tr>
+      <tr><td class="team-name">6.<span></span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="total-box"></td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
