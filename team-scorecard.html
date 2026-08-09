@@ -27,13 +27,62 @@
     box-sizing:border-box;
     background:var(--white);
     padding:10mm;
-    margin:0 auto;
+    margin:0 auto 4mm;
     overflow:hidden;
+    page-break-after:always;
+    break-after:page;
   }
+  .page:last-child{ page-break-after:auto; break-after:auto; margin-bottom:0; }
 
   @media print{
     body{ background:var(--white); }
     .page{ margin:0; }
+  }
+
+  .cover-page{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:var(--cream);
+  }
+  .cover-eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    font-size:11pt;
+    color:var(--green);
+    margin-bottom:8mm;
+  }
+  .cover-title{
+    font-family:'Playfair Display',serif;
+    font-weight:800;
+    font-size:52pt;
+    line-height:1.05;
+    margin:0;
+    color:var(--green-deep);
+  }
+  .cover-subtitle{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-size:13pt;
+    color:var(--green);
+    font-weight:600;
+    margin-top:6mm;
+  }
+  .cover-rule{
+    width:26mm;
+    height:1mm;
+    background:var(--gold);
+    border:none;
+    margin:10mm auto;
+  }
+  .cover-tagline{
+    font-size:15pt;
+    color:var(--muted);
+    font-weight:500;
   }
 
   .title-row{
@@ -117,9 +166,17 @@
 </head>
 <body>
 
+<div class="page cover-page">
+  <div class="cover-eyebrow">Saturday 15th August &middot; 2pm start &middot; Blackpool North Station</div>
+  <h1 class="cover-title">Roby Mill<br>Pub Golf</h1>
+  <div class="cover-subtitle">Overall Scorecard</div>
+  <hr class="cover-rule">
+  <div class="cover-tagline">12 Holes &middot; <strong style="color:var(--green-deep);">Par 39</strong> &middot; 6 Teams</div>
+</div>
+
 <div class="page">
   <div class="title-row">
-    <h1 class="title">Roby Mill Pub Golf — Team Scorecard</h1>
+    <h1 class="title">Roby Mill Pub Golf — Overall Scorecard</h1>
     <div class="subtitle">Saturday 15th August &middot; 12 Holes &middot; Par 39</div>
   </div>
 
