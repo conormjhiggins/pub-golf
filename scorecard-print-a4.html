@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Roby Mill Pub Golf — Team Scorecard (A4 print-at-home)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F2F6FB;
+    --cream-deep:#E1EBF7;
+    --white:#FFFFFF;
+    --green:#1D4E89;
+    --green-deep:#0B2545;
+    --gold:#E8622C;
+    --text:#14213D;
+    --muted:#5B6B85;
+    --line:#C9D6E8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#CCCCCC;font-family:'Inter',sans-serif;color:var(--text);}
+  @page{ size:210mm 297mm; margin:0; }
+
+  .a4-sheet{
+    width:210mm;
+    height:297mm;
+    box-sizing:border-box;
+    background:var(--white);
+    padding:8mm;
+    margin:0 auto;
+    position:relative;
+    display:grid;
+    grid-template-columns:97mm 97mm;
+    grid-template-rows:135.5mm 135.5mm;
+    row-gap:10mm;
+    column-gap:0;
+  }
+
+  @media print{
+    body{ background:var(--white); }
+  }
+
+  .cell{
+    width:97mm;
+    height:135.5mm;
+    overflow:hidden;
+    position:relative;
+  }
+  .cell.col-left{ border-right:0.3mm dashed var(--muted); }
+
+  .cut-guide{
+    position:absolute;
+    left:8mm;
+    top:143.5mm;
+    width:194mm;
+    height:10mm;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:7pt;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    border-top:0.3mm dashed var(--muted);
+    border-bottom:0.3mm dashed var(--muted);
+  }
+
+  .panel-scale{
+    width:105mm;
+    height:148mm;
+    transform:scale(0.92381, 0.91554);
+    transform-origin:top left;
+  }
+
+  .panel{
+    width:105mm;
+    height:148mm;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+
+  .inside-content{
+    width:210mm;
+    height:148mm;
+    box-sizing:border-box;
+    padding:3.6mm 7.5mm;
+    overflow:hidden;
+  }
+
+  .score-table{ width:195mm; border-collapse:collapse; table-layout:fixed; border:0.4mm solid var(--text); }
+  .score-table .divider-left{ border-left:0.3mm solid var(--muted); }
+  .score-table thead tr{ height:5mm; }
+  .score-table tbody tr{ height:10mm; }
+  .score-table tfoot tr{ height:10mm; }
+  .score-table thead th{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:6.5pt;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--white);
+    background:var(--green-deep);
+    text-align:left;
+    padding:0 1mm;
+  }
+  .score-table thead th.center{ text-align:center; }
+  .score-table thead th.sub{
+    font-size:5.5pt;
+    background:var(--green);
+    border-left:0.2mm solid rgba(255,255,255,0.3);
+  }
+  .score-table tbody td{
+    font-size:7pt;
+    color:var(--text);
+    border-bottom:0.2mm solid var(--line);
+    padding:0 1mm;
+    vertical-align:middle;
+  }
+  .score-table tbody td.hole-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    text-align:center;
+    color:var(--green);
+  }
+  .score-table tbody td.par{
+    font-family:'IBM Plex Mono',monospace;
+    text-align:center;
+    color:var(--muted);
+  }
+  .score-table tbody td.pub,
+  .score-table tbody td.drink{
+    text-transform:uppercase;
+    color:var(--green);
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .score-table tbody td.score-box{
+    border-left:0.4mm solid var(--text);
+  }
+  .score-table tbody td.pen-box{
+    border-left:0.2mm solid var(--line);
+  }
+  .score-table tfoot td{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:6.5pt;
+    color:var(--green-deep);
+    border-top:0.4mm solid var(--text);
+    padding:0 1mm;
+    text-align:center;
+  }
+  .score-table tfoot td.total-label{ text-align:left; }
+  .score-table tfoot td.score-box{ border-left:0.4mm solid var(--text); }
+  .score-table tfoot td.pen-box{ border-left:0.2mm solid var(--line); }
+</style>
+</head>
+<body>
+
+<div class="a4-sheet">
+
+  <div class="cell col-left">
+    <div class="panel-scale">
+      <div class="panel back-cover" style="padding:8mm;background:var(--white);display:flex;flex-direction:column;">
+        <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:12pt;color:var(--green-deep);margin-bottom:2mm;">Penalty Strokes</div>
+        <table style="width:100%;border-collapse:collapse;font-size:7.5pt;margin-bottom:6mm;">
+          <tr><td style="padding:1.2mm 0;border-bottom:0.2mm solid var(--line);">Piss between pubs</td><td style="padding:1.2mm 0;border-bottom:0.2mm solid var(--line);text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--green);font-weight:600;">+1</td></tr>
+          <tr><td style="padding:1.2mm 0;border-bottom:0.2mm solid var(--line);">Spilled drink</td><td style="padding:1.2mm 0;border-bottom:0.2mm solid var(--line);text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--green);font-weight:600;">+2</td></tr>
+          <tr><td style="padding:1.2mm 0;border-bottom:0.2mm solid var(--line);">Broken glass</td><td style="padding:1.2mm 0;border-bottom:0.2mm solid var(--line);text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--green);font-weight:600;">+3</td></tr>
+          <tr><td style="padding:1.2mm 0;border-bottom:0.2mm solid var(--line);">Dry hole</td><td style="padding:1.2mm 0;border-bottom:0.2mm solid var(--line);text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--green);font-weight:600;">+3</td></tr>
+          <tr><td style="padding:1.2mm 0;">Throwing up</td><td style="padding:1.2mm 0;text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--green);font-weight:600;">+3</td></tr>
+        </table>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:6pt;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);">
+          Marker's Signature
+          <div style="width:100%;border-bottom:0.3mm solid var(--muted);margin-top:4mm;">&nbsp;</div>
+        </div>
+        <div style="margin-top:auto;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:6.5pt;color:var(--muted);border-top:0.3mm solid var(--line);padding-top:3mm;">
+          <span>TOTAL P1 ____</span><span>P2 ____</span><span>P3 ____</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cell col-right">
+    <div class="panel-scale">
+      <div class="panel front-cover" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:10mm;background:var(--cream);">
+        <div style="font-family:'IBM Plex Mono',monospace;letter-spacing:0.16em;text-transform:uppercase;font-size:7pt;color:var(--green);">Saturday 15th August</div>
+        <div>
+          <h1 style="font-family:'Playfair Display',serif;font-weight:800;font-size:20pt;line-height:1.05;margin:0;color:var(--green-deep);">Roby Mill<br>Pub Golf</h1>
+          <hr style="width:14mm;height:0.6mm;background:var(--gold);border:none;margin:6mm auto;">
+          <div style="font-size:9pt;color:var(--muted);font-weight:500;">12 Holes &middot; <strong style="color:var(--green-deep);">Par 39</strong></div>
+        </div>
+        <div style="width:100%;font-family:'IBM Plex Mono',monospace;font-size:6.5pt;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);">
+          <div>Team</div>
+          <div style="border-bottom:0.3mm solid var(--text);height:5mm;margin-top:2mm;margin-bottom:5mm;">&nbsp;</div>
+          <div>Players</div>
+          <div style="border-bottom:0.3mm solid var(--text);height:4mm;margin-top:2mm;">&nbsp;</div>
+          <div style="border-bottom:0.3mm solid var(--text);height:4mm;margin-top:2mm;">&nbsp;</div>
+          <div style="border-bottom:0.3mm solid var(--text);height:4mm;margin-top:2mm;">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cut-guide">&#9986; Cut here — separate top strip (outside) from bottom strip (inside)</div>
+
+  <div class="cell col-left">
+    <div class="panel-scale">
+      <div class="inside-content" style="width:105mm;">
+        <table class="score-table" style="width:97mm;">
+          <colgroup>
+            <col style="width:8mm;">
+            <col style="width:29mm;">
+            <col style="width:34mm;">
+            <col style="width:26mm;">
+          </colgroup>
+          <thead>
+            <tr style="height:10mm;">
+              <th class="center">#</th>
+              <th>Pub</th>
+              <th class="divider-left">Drink</th>
+              <th class="center divider-left">Par</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="hole-num">1</td><td class="pub">Ma Kellys</td><td class="divider-left drink">Pint of lager</td><td class="par divider-left">5</td></tr>
+            <tr><td class="hole-num">2</td><td class="pub">Cowboy &amp; Co.</td><td class="divider-left drink">Whisky &amp; mixer</td><td class="par divider-left">3</td></tr>
+            <tr><td class="hole-num">3</td><td class="pub">Walkabout</td><td class="divider-left drink">Red wine</td><td class="par divider-left">4</td></tr>
+            <tr><td class="hole-num">4</td><td class="pub">Nellie Deans</td><td class="divider-left drink">Baby Guinness shot</td><td class="par divider-left">1</td></tr>
+            <tr><td class="hole-num">5</td><td class="pub">Bees Knees</td><td class="divider-left drink">Long Island</td><td class="par divider-left">3</td></tr>
+            <tr><td class="hole-num">6</td><td class="pub">Retro Lounge</td><td class="divider-left drink">Double spirit &amp; mixer</td><td class="par divider-left">3</td></tr>
+            <tr><td class="hole-num">7</td><td class="pub">Rose &amp; Crown</td><td class="divider-left drink">Pint of lager</td><td class="par divider-left">4</td></tr>
+            <tr><td class="hole-num">8</td><td class="pub">Scruffy Murphys</td><td class="divider-left drink">Guinness</td><td class="par divider-left">5</td></tr>
+            <tr><td class="hole-num">9</td><td class="pub">Layton Rakes</td><td class="divider-left drink">Pitcher</td><td class="par divider-left">6</td></tr>
+            <tr><td class="hole-num">10</td><td class="pub">Shenanigans</td><td class="divider-left drink">Irish whiskey shot</td><td class="par divider-left">1</td></tr>
+            <tr><td class="hole-num">11</td><td class="pub">Coyote Ugly</td><td class="divider-left drink">Tequila shot</td><td class="par divider-left">1</td></tr>
+            <tr><td class="hole-num">12</td><td class="pub">Knobby's Karaoke</td><td class="divider-left drink">Dealer's choice</td><td class="par divider-left">3</td></tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" class="total-label">TOTAL</td>
+              <td class="par divider-left" style="color:var(--green-deep);">39</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="cell col-right">
+    <div class="panel-scale">
+      <div class="inside-content" style="width:105mm;padding-left:2mm;">
+        <table class="score-table" style="width:97mm;">
+          <colgroup>
+            <col style="width:16.17mm;"><col style="width:16.17mm;">
+            <col style="width:16.17mm;"><col style="width:16.17mm;">
+            <col style="width:16.16mm;"><col style="width:16.16mm;">
+          </colgroup>
+          <thead>
+            <tr>
+              <th colspan="2" class="center">P1</th>
+              <th colspan="2" class="center divider-left">P2</th>
+              <th colspan="2" class="center divider-left">P3</th>
+            </tr>
+            <tr>
+              <th class="sub center">Scr</th><th class="sub center">Pen</th>
+              <th class="sub center divider-left">Scr</th><th class="sub center">Pen</th>
+              <th class="sub center divider-left">Scr</th><th class="sub center">Pen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+            <tr><td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td></tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="score-box"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td><td class="score-box divider-left"></td><td class="pen-box"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
